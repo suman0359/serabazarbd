@@ -1,0 +1,52 @@
+.navbar{
+	background-color: #3097d1;
+    border-color: #1c73a5;
+    border-radius: 0;
+}
+
+.skin-blue .main-header .navbar, .skin-blue .main-header .logo {
+    background-color: #3097d1;
+}
+
+.login_button{
+	padding: 5px;
+}
+
+.login_button a{
+	padding: 0 40px; 
+	line-height: 40px;
+    font-weight: 700;
+    font-size: 18px;
+    text-transform: uppercase;
+    background-color: #13293D;
+    color: #fff;
+}
+
+.login_button a:active, .login_button a:hover, .login_button a:focus{
+	background-color: #13293D;
+	color: #fff;
+}
+
+.skin-blue .wrapper, .skin-blue .main-sidebar, .skin-blue .left-side {
+    background-color: #ffffff;
+}
+
+.skin-blue .sidebar-menu>li.header {
+    color: #4b646f;
+    background: #b7b7b7;
+}
+
+.skin-blue .sidebar-menu>li:hover>a, .skin-blue .sidebar-menu>li.active>a {
+    color: #000;
+    background: #b7b7b7;
+    border-left-color: #3c8dbc;
+}
+
+.skin-blue .sidebar a {
+    color: #000;
+}
+
+.slider img{
+	width: 100%;
+	height: 300px;
+}
