@@ -49,18 +49,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] 			= 'home';
-$route['404_override'] 					= '';
-$route['translate_uri_dashes'] 			= FALSE;
+$route['default_controller'] 	= 'admin';
+$route['404_override'] 			= '';
+$route['translate_uri_dashes'] 	= FALSE;
 
-// $route['(:any)'] 						= "home/$1";
-// $route['(:any)/(:any)'] 				= "home/$1/$1";
-// $route['(:any)/(:any)/(:any)'] 			= "home/$1/$1/$1";
-// $route['(:any)/(:any)/(:any)/(:any)'] 	= "home/$1/$1/$1/$1";
-
-
-// $route['home/([a-zA-Z_-]+)/(:any)'] 	= '$1/home/$2'; 
-// $route['home/login'] 					= 'home/login'; 
-// $route['home/logout'] 					= 'home/logout'; 
-// $route['home/([a-zA-Z_-]+)'] 			= '$1/home/index'; 
-// $route['home'] 						= 'home';
+$route['(:any)'] 				= "admin/$1";
+$route['(:any)/(:any)'] 		= "admin/$1/$1";
+$route['(:any)/(:any)/(:any)'] 	= "admin/$1/$1/$1";
+$route['(:any)/(:any)/(:any)/(:any)'] 	= "admin/$1/$1/$1/$1";
