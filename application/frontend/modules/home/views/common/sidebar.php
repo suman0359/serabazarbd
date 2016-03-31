@@ -18,8 +18,12 @@
             </li>
 
 
+            <?php 
 
-            <li><a href="http://mudibazarbd.com/category/25/rice.html">Rice</a></li>
+            foreach ($sidebar_menu as $value) { ?>
+                <li><a href="<?php echo base_url(); ?>"><?php echo $value->category_name; ?></a></li>
+            <?php } ?>
+            <!-- <li><a href="http://mudibazarbd.com/category/25/rice.html">Rice</a></li>
             <li><a href="http://mudibazarbd.com/category/12/atta-maida--suji.html">Atta Maida  Suji</a></li>
             <li><a href="http://mudibazarbd.com/category/24/dal-or-lentil.html">Dal or Lentil</a></li>
             <li><a href="http://mudibazarbd.com/category/23/oil.html">Oil</a></li>
@@ -57,7 +61,7 @@
             <li><a href="http://mudibazarbd.com/category/26/others.html">Others</a></li>
 
 
-
+ -->
 
 
 
@@ -74,14 +78,14 @@
                     <!-- <span class="label label-primary pull-right">4</span> -->
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="../layout/top-nav.html"> Top Navigation</a></li>
-                    <li><a href="../layout/boxed.html"> Boxed</a></li>
-                    <li><a href="../layout/fixed.html"> Fixed</a></li>
-                    <li><a href="../layout/collapsed-sidebar.html"> Collapsed Sidebar</a></li>
+                    <li><a href="<?php echo base_url(); ?>"> Top Navigation</a></li>
+                    <li><a href="<?php echo base_url(); ?>"> Boxed</a></li>
+                    <li><a href="<?php echo base_url(); ?>"> Fixed</a></li>
+                    <li><a href="<?php echo base_url(); ?>"> Collapsed Sidebar</a></li>
                 </ul>
             </li>
             <li>
-                <a href="../widgets.html">
+                <a href="<?php echo base_url(); ?>">
                   <!-- <span>Widgets</span> <small class="label pull-right bg-green">new</small> -->
                 </a>
             </li>
@@ -92,10 +96,10 @@
                     <i class="fa fa-angle-right pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="../charts/chartjs.html"> ChartJS</a></li>
-                    <li><a href="../charts/morris.html"> Morris</a></li>
-                    <li><a href="../charts/flot.html"> Flot</a></li>
-                    <li><a href="../charts/inline.html"> Inline charts</a></li>
+                    <li><a href="<?php echo base_url(); ?>"> ChartJS</a></li>
+                    <li><a href="<?php echo base_url(); ?>"> Morris</a></li>
+                    <li><a href="<?php echo base_url(); ?>"> Flot</a></li>
+                    <li><a href="<?php echo base_url(); ?>"> Inline charts</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -104,12 +108,12 @@
                     <i class="fa fa-angle-right pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="../UI/general.html"> General</a></li>
-                    <li><a href="../UI/icons.html"> Icons</a></li>
-                    <li><a href="../UI/buttons.html"> Buttons</a></li>
-                    <li><a href="../UI/sliders.html"> Sliders</a></li>
-                    <li><a href="../UI/timeline.html"> Timeline</a></li>
-                    <li><a href="../UI/modals.html"> Modals</a></li>
+                    <li><a href="<?php echo base_url(); ?>"> General</a></li>
+                    <li><a href="<?php echo base_url(); ?>"> Icons</a></li>
+                    <li><a href="<?php echo base_url(); ?>"> Buttons</a></li>
+                    <li><a href="<?php echo base_url(); ?>"> Sliders</a></li>
+                    <li><a href="<?php echo base_url(); ?>"> Timeline</a></li>
+                    <li><a href="<?php echo base_url(); ?>"> Modals</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -129,8 +133,8 @@
                     <i class="fa fa-angle-right pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="../tables/simple.html"> Simple tables</a></li>
-                    <li><a href="../tables/data.html"> Data tables</a></li>
+                    <li><a href="<?php echo base_url(); ?>"> Simple tables</a></li>
+                    <li><a href="<?php echo base_url(); ?>"> Data tables</a></li>
                 </ul>
             </li>
             <li>
@@ -140,7 +144,7 @@
                 </a>
             </li>
             <li>
-                <a href="../mailbox/mailbox.html">
+                <a href="<?php echo base_url(); ?>">
                     <span>Mailbox</span>
                     <small class="label pull-right bg-yellow">12</small>
                 </a>
@@ -151,14 +155,14 @@
                     <i class="fa fa-angle-right pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="../examples/invoice.html"> Invoice</a></li>
-                    <li><a href="../examples/profile.html"> Profile</a></li>
-                    <li><a href="../examples/login.html"> Login</a></li>
-                    <li><a href="../examples/register.html"> Register</a></li>
-                    <li><a href="../examples/lockscreen.html"> Lockscreen</a></li>
-                    <li><a href="../examples/404.html"> 404 Error</a></li>
-                    <li><a href="../examples/500.html"> 500 Error</a></li>
-                    <li><a href="../examples/blank.html"> Blank Page</a></li>
+                    <li><a href="<?php echo base_url(); ?>"> Invoice</a></li>
+                    <li><a href="<?php echo base_url(); ?>l"> Profile</a></li>
+                    <li><a href="<?php echo base_url(); ?>"> Login</a></li>
+                    <li><a href="<?php echo base_url(); ?>"> Register</a></li>
+                    <li><a href="<?php echo base_url(); ?>"> Lockscreen</a></li>
+                    <li><a href="<?php echo base_url(); ?>"> 404 Error</a></li>
+                    <li><a href="<?php echo base_url(); ?>"> 500 Error</a></li>
+                    <li><a href="<?php echo base_url(); ?>"> Blank Page</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -184,7 +188,7 @@
                     <li><a href="#"> Level One</a></li>
                 </ul>
             </li>
-            <li><a href="../../documentation/index.html"><span>Documentation</span></a></li>
+            <li><a href="<?php echo base_url(); ?>"><span>Documentation</span></a></li>
             <li class="header">LABELS</li>
             <li><a href="#"> <span>Important</span></a></li>
             <li><a href="#"> <span>Warning</span></a></li>

@@ -55,6 +55,8 @@
                     <tr>
                       <th>ID</th>
                       <th>Category Name</th>
+                      <th>Category Type</th>
+                      <th>Sub Category Name</th>
                       <th>Category Image</th>
                       <!-- <th class="span3">Parent Category</th> -->
                       <th class="text-right">Action</th>
@@ -63,11 +65,13 @@
                     foreach ($category_list as $value) { ?>
                     <tr>                    
                       <td><?php echo $value->id; ?></td>
-                      <td>J<?php echo $value->category_name; ?></td>
-                      <td><img src="<?php echo base_url() ?>../uploads/category/thumb/<?php echo $value->category_thumb_image; ?>" alt="" style="width: 70px; height: 70px;"></td>
+                      <td><?php echo $value->category_name; ?></td>
+                      <td><?php $category_type = $value->category_type; if($category_type==0)echo "<span class=\"label label-success\">Main Category</span>"; if($category_type==1)echo "<span class=\"label label-primary\">Sub Category</span>"; ?></td>
+                      <td><?php $parent_category_id = $value->parent_category_id; $parent_category = $this->common_model->getInfo('tbl_category', $parent_category_id);  
+                       echo @$parent_category->category_name; ?></td> 
+                      <td><img src="<?php echo base_url() ?>../uploads/category/thumb/<?php echo $value->category_thumb_image; ?>" alt="" style="width: 70px; height: 50px;"></td>
                       <!-- <td class="span3"><span class="label label-success">Approved</span></td> -->
-                      <!--  <td><?php $parent_category_id = $value->parent_category_id; $parent_category = $this->common_model->getInfo('tbl_category', $parent_category_id);  
-                       echo @$parent_category->category_name; ?></td> -->
+                        
                       
                       <td class="text-right">
                           <div class="btn-group">

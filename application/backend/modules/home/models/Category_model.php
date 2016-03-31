@@ -12,5 +12,16 @@ class Category_model extends CI_Model {
         $result=$query_result->result();
         return $result;
     }
+
+    public function parent_category_list(){
+        $this->db->select('*');
+        $this->db->where('category_type', 0);
+        $this->db->where('status', 1);
+        $this->db->from('tbl_category');
+
+        $query_result=$this->db->get();
+        $result=$query_result->result();
+        return $result;
+    }
 		
 }

@@ -25,6 +25,8 @@ class Category extends CI_Controller{
 		$data = array();
 		$data['category_name']="";
 		$data['category_image']="";
+		$data['parent_category_id']="";
+		$data['category_type']="";
 		$data['submit'] = "Add New Category";
 
 		$this->load->library('form_validation');
@@ -32,7 +34,8 @@ class Category extends CI_Controller{
 		// $this->form_validation->set_rules('category_image','Category Image','trim|required');
 
 		if ($this->form_validation->run() == FALSE) {
-			
+			$this->load->model('category_model');
+			$data['parent_category_list'] = $this->category_model->parent_category_list();
             $data['main_content'] = $this->load->view('category/add_form', $data, TRUE);
 			$this->load->view('master', $data);
         } else {
@@ -45,7 +48,7 @@ class Category extends CI_Controller{
 
             $config = array(
             'upload_path'   => "../uploads/category/",
-            'allowed_types' => 'gif|jpg|png',
+            'allowed_types' => 'gif|jpg|jpeg|png',
             'max_size'      => '10000',
             'max_width'     => '10240',
             'max_height'    => '7680',
@@ -108,21 +111,25 @@ class Category extends CI_Controller{
 
 	public function edit($id){
 		$data = array();
+		$datas = array();
 		$content= $this->common_model->getInfo('tbl_category', $id);
 		$data['category_name']=$content->category_name;
 		$data['category_image']=$content->category_image;
+		$data['parent_category_id']=$content->parent_category_id;
+		$data['category_type'] = $content->category_type;
 		$data['submit'] = "Update Category";
 
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('category_name','Category Name','trim|required');
 
-		if (empty($_FILES['category_image']['name'])){
-			$this->form_validation->set_rules('category_image','Category Image','trim|required');
-		}
+		// if (empty($_FILES['category_image']['name'])){
+		// 	$this->form_validation->set_rules('category_image','Category Image','trim|required');
+		// }
 		
 
 		if ($this->form_validation->run() == FALSE) {
-			
+			$this->load->model('category_model');
+			$data['parent_category_list'] = $this->category_model->parent_category_list();
             $data['main_content'] = $this->load->view('category/add_form', $data, TRUE);
 			$this->load->view('master', $data);
         } else {
@@ -132,10 +139,12 @@ class Category extends CI_Controller{
             if (@$_FILES['category_image']['size'] > 0) {
             $this->load->library('upload');
 
+            unlink("../uploads/category/".$content->category_image);
+            unlink("../uploads/category/thumb/".$content->category_thumb_image);
 
             $config = array(
             'upload_path'   => "../uploads/category/",
-            'allowed_types' => 'gif|jpg|png',
+            'allowed_types' => 'gif|jpg|jpeg|png',
             'max_size'      => '10000',
             'max_width'     => '10240',
             'max_height'    => '7680',
@@ -175,16 +184,19 @@ class Category extends CI_Controller{
 
                     redirect($_SERVER["HTTP_REFERER"]);
 	            }
+
+	            $datas['category_image'] = $category_image;
+            	$datas['category_thumb_image'] = $category_image;
 	           
 	        }
 
             /* *************************************** */
         	
-        	$datas = array();
+        	$datas['category_type']=$this->input->post('category_type');
+        	$datas['parent_category_id']=$this->input->post('parent_category_id');
             $datas['category_name'] = $this->input->post('category_name');
             $datas['creator_user_id']		= $this->session->userdata('user_id');
-            $datas['category_image'] = $category_image;
-            $datas['category_thumb_image'] = $category_image;
+            
 
                                     
         	$this->common_model->update('tbl_category', $datas, $id);

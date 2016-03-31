@@ -30,7 +30,10 @@
           <?php foreach ($catagory_list as $value) { ?>
             <div class="col-md-3 col-xs-4 product_grid">
               <div class="product_image">
-                <img src="<?php echo base_url();?>uploads/category/<?php echo $value->category_thumb_image; ?>" alt="">
+                <a href="<?php echo base_url(); ?>home/category/<?php echo $value->id; ?>">
+                  <img src="<?php echo base_url();?>uploads/category/<?php echo $value->category_thumb_image; ?>" alt="">
+                </a>
+                
                 <h4><?php echo $value->category_name; ?></h4>
               </div>
             </div>

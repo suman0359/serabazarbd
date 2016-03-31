@@ -55,7 +55,10 @@
                     <tr>
                       <th>ID</th>
                       <th>Product Name</th>
-                      <th>Cetegory</th>
+                      <th>Product Quantity</th>
+                      <th>Price</th>
+                      <th>Sell Price</th>
+                      <th>Category</th>
                       <th>Sub Category</th>
                       <th>Product Image</th>
                       <!-- <th class="span3">Parent product</th> -->
@@ -65,7 +68,10 @@
                     foreach ($product_list as $value) { ?>
                     <tr>                    
                       <td><?php echo $value->id; ?></td>
-                      <td>J<?php echo $value->product_name; ?></td>
+                      <td><?php echo $value->product_name; ?></td>
+                      <td><?php echo $value->product_quantity; ?></td>
+                      <td><?php echo $value->price; ?></td>
+                      <td><?php echo $value->sell_price; ?></td>
                       <td><?php $category_id = $value->category_id; $category_name =$this->common_model->getInfo('tbl_category', $category_id); echo $category_name->category_name; ?></td>
                       <td><?php $parent_category_id = $value->parent_category_id; $parent_category_name =$this->common_model->getInfo('tbl_category', $category_id); echo $parent_category_name->category_name; ?></td>
                       <td><img src="<?php echo base_url() ?>../uploads/product/thumb/<?php echo $value->product_thumb_image; ?>" alt="" style="width: 70px; height: 70px;"></td>

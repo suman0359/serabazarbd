@@ -25,6 +25,8 @@ class Product extends CI_Controller{
 		$data = array();
 		$data['product_name']="";
 		$data['product_quantity']="";
+		$data['category_id']="";
+		$data['parent_category_id']="";
 		$data['price']="";
 		$data['sell_price']="";
 		$data['product_image']="";
@@ -52,7 +54,7 @@ class Product extends CI_Controller{
 
             $config = array(
             'upload_path'   => "../uploads/product/",
-            'allowed_types' => 'gif|jpg|png',
+            'allowed_types' => 'gif|jpeg|jpg|png',
             'max_size'      => '10000',
             'max_width'     => '10240',
             'max_height'    => '7680',
@@ -120,6 +122,7 @@ class Product extends CI_Controller{
 
 	public function edit($id){
 		$data = array();
+		$datas = array();
 		$content= $this->common_model->getInfo('tbl_product', $id);
 		$data['product_name']		= $content->product_name;
 		$data['product_quantity']	= $content->product_quantity;
@@ -133,9 +136,9 @@ class Product extends CI_Controller{
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('product_name','product Name','trim|required');
 
-		if (empty($_FILES['product_image']['name'])){
-			$this->form_validation->set_rules('product_image','product Image','trim|required');
-		}
+		// if (empty($_FILES['product_image']['name'])){
+		// 	$this->form_validation->set_rules('product_image','product Image','trim|required');
+		// }
 		
 
 		if ($this->form_validation->run() == FALSE) {
@@ -156,7 +159,7 @@ class Product extends CI_Controller{
 
             $config = array(
             'upload_path'   => "../uploads/product/",
-            'allowed_types' => 'gif|jpg|png',
+            'allowed_types' => 'gif|jpeg|jpg|png',
             'max_size'      => '10000',
             'max_width'     => '10240',
             'max_height'    => '7680',
@@ -197,15 +200,21 @@ class Product extends CI_Controller{
                     redirect($_SERVER["HTTP_REFERER"]);
 	            }
 	           
+	           	$datas['product_image'] = $product_image;
+            	$datas['product_thumb_image'] = $product_image;
 	        }
 
             /* *************************************** */
         	
-        	$datas = array();
+        	
             $datas['product_name'] = $this->input->post('product_name');
+            $datas['product_quantity'] = $this->input->post('product_quantity');
+            $datas['price'] = $this->input->post('price');
+            $datas['sell_price'] = $this->input->post('sell_price');
+            $datas['category_id'] = $this->input->post('category_id');
+            $datas['parent_category_id'] = $this->input->post('parent_category_id');
             $datas['creator_user_id']		= $this->session->userdata('user_id');
-            $datas['product_image'] = $product_image;
-            $datas['product_thumb_image'] = $product_image;
+            
 
                                     
         	$this->common_model->update('tbl_product', $datas, $id);
